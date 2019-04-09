@@ -20,9 +20,9 @@ class PageInstagram:
 
         total_page_ = graph.get_object(id_admin_insta_page+'/media?fields=caption,thumbnail_url,like_count,comments_count,comments&limit=1000&pretty=0')
 
-        total_insights = graph.get_object(id_admin_insta_page+'/media?pretty=0&fields=thumbnail_url,insights.metric(impressions,reach,engagement,saved)&limit=1000&before=QVFIUkd3RXV3S1R5TjNDenhRQnAzN25NT3FZARkdUOGJmMDlXc2lSNnFPa2dYNTB0WjNEWEdMY1cwWGFSU2d0QThLNjhGRTVFbEl2dVpXZAjR6QklpOTFITVZAn')
+       total_insights = graph.get_object(id_admin_insta_page+'/media?pretty=0&fields=thumbnail_url,insights.metric(impressions,reach,engagement,saved)&limit=1000&before={?token_before}')
 
-        res = requests.get('https://graph.facebook.com/v3.2/act_2087043811308669/campaigns?access_token=EAAH22QokW2IBAAZCUMkVilZA7AThDeTGVv1uNcwwHvyLVpn3AwsGNZAxIrZBtGPanvZBZBRu8tm5fZBY9pqSER6CF9eAWl2P48WD4tLIJfievIaiPrAOPLZBtRn5hX5pWwh4EmssnXxU0voS97z3axrvDNxnfbld6i81IYii2avwygZDZD&pretty=0&fields=media_url%2Cads%7Bname%2Cconversion_specs%7D%2Cid%2Cinsights.date_preset%28lifetime%29%7Breach%2Cimpressions%2Cspend%7D&limit=1000')
+        res = requests.get('https://graph.facebook.com/v3.2/{?}/campaigns?access_token={?token_de_acesso}&pretty=0&fields=media_url%2Cads%7Bname%2Cconversion_specs%7D%2Cid%2Cinsights.date_preset%28lifetime%29%7Breach%2Cimpressions%2Cspend%7D&limit=1000')
 
         total_campaigns = res.json()
 
